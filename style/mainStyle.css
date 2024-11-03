@@ -1,0 +1,16 @@
+body{
+    display: block;
+    color-scheme: dark;
+    /*background: radial-gradient(circle at top center, rgb(6, 208, 1), transparent 50%, transparent 100%);*/
+    background-color: var(--bg-color);
+    background-attachment: fixed;
+}
+
+:root{
+    --bg-color: #b5aeae;
+    --theme-color: #a3e635 ;
+    --theme-color1: #84cc16 ;
+    --theme-color2: #65a30d ;
+    --white-color: #ffff;
+    --black-color: #000000FF;
+}
