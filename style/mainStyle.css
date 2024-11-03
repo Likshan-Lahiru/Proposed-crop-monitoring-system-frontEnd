@@ -14,3 +14,11 @@ body{
     --white-color: #ffff;
     --black-color: #000000FF;
 }
+
+.section{
+    height: 100vh;
+    width: 100vw;
+    background: var(--theme-color2);
+    color: white;
+    padding-top: 5vh;
+}
