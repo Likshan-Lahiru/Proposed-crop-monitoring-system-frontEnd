@@ -3,7 +3,7 @@ body{
     color-scheme: dark;
     /*background: radial-gradient(circle at top center, rgb(6, 208, 1), transparent 50%, transparent 100%);*/
     background-color: var(--bg-color);
-    background-attachment: fixed;
+
 
 
 }
@@ -18,21 +18,19 @@ body{
     --black-color: #000000FF;
 }
 
-/*
 .section {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center; !* Center vertically *!
+    align-items: center; /* Center vertically */
     background: #1c7430;
 }
-*/
 
 
 
 #red{
-    width: 40vw;
+    width: 35vw;
     height: 70vh;
     background: var(--white-color);
     opacity: 0.9;
@@ -40,13 +38,13 @@ body{
 
 #green{
     width: 30vw;
-    height: 34vh;
+    height: 39vh;
     background: var(--white-color);
     opacity: 0.9;
 }
 #gray{
     width: 30vw;
-    height: 34vh;
+    height: 30vh;
     background: var(--white-color);
     opacity: 0.9;
 }
@@ -66,3 +64,14 @@ body{
     border: 2px solid #04AA6D; /* Green */
 }
 
+/*---------------crop section style-------------------------*/
+
+#kt_modal_2 .modal-content {
+    background: linear-gradient(to bottom, #e0ffe0, #ffffff);
+}
+
+
+#kt_modal_2 .modal-header,
+#kt_modal_2 .modal-footer {
+    background-color: #e0ffe0;
+}

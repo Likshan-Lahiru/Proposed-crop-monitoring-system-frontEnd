@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="style/slider.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
 
+    </style>
 
   </head>
   <body>
@@ -84,33 +87,27 @@
   </section>
 
     <section class="section" id="home-section">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-mp">
-            <div id="red" class="card  text-white mb-2 ">
-              <div class="card-body d-flex align-items-center justify-content-center">
-                <h1>Box1</h1>
+      <div class="container px-1 text-center">
+        <div class="row gx-5">
+          <div class="col">
+            <div class="gy-2">
+              <div id="red" class="card  text-white mb-2 ">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                  <h1>Box1</h1>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="col-md-1">
-            <div class="row">
-              <div class="col-12 mb-3">
-                <div id="gray" class="card text-white ">
-                  <div class="card-body d-flex align-items-center justify-content-center">
-                    <h1>Box3</h1>
-                  </div>
+          <div class="col">
+            <div class="row gy-2">
+              <div id="gray" class="card text-white ">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                  <h1>Box3</h1>
                 </div>
               </div>
-
-              <div class="col-12">
-                <div id="green" class="card  text-white">
-                  <div class="card-body d-flex align-items-center justify-content-center">
-                    <h1>Box2</h1>
-
-                  </div>
+              <div id="green" class="card text-white ">
+                <div class="card-body d-flex align-items-center justify-content-center">
+                  <h1>Box3</h1>
                 </div>
               </div>
             </div>
@@ -126,262 +123,404 @@
     </section>
 
     <section  class="section" id="crop-section">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+
+          </div>
+          <div class="col">
+
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_2">
+                view crop table
+            </button>
+
+          </div>
+        </div>
+      </div>
+      <!--view crop table-->
+      <div class="modal bg-body fade" tabindex="-1" id="kt_modal_2">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content shadow-none">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <div class="input-group rounded">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search"></i>
+  </span>
+              </div>
+              <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
+              </div>
+            </div>
+
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section class="product">
-        <h2 class="product-category">best selling</h2>
+        <h2 class="product-category">Rice</h2>
         <button class="pre-btn"><img src="assets/images/arrow.png" alt=""></button>
         <button class="nxt-btn"><img src="assets/images/arrow.png" alt=""></button>
         <div class="product-container">
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card1.jpg" class="product-thumb" alt="">
-              <button class="card-btn">information</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
-              <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <h2 id="pB" class="product-brand">brand</h2>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card2.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card3.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card4.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card5.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card6.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card7.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
 
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card8.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card9.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card10.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
-        </div>
+
+
+          <!--------------------model edit ------------------------->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Details</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Crop common name</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">Crop scientific name</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">Category</label>
+                      <textarea class="form-control" id="message-text2"></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">Crop season</label>
+                      <textarea class="form-control" id="message-text3"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-success">update</button>
+                  <button type="button" class="btn btn-info">Clear</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--------------------model information ------------------------->
+
+             <div class="col-md-4">
+
+               <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                 <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <h6 class="modal-title font-weight-normal" id="modal-title-default">Type your modal title</h6>
+                       <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">×</span>
+                       </button>
+                     </div>
+                     <div class="modal-body">
+                       <p>Far far away, behind the word mountains, <br>
+                         Far far away, behind the word mountains,
+                       </p>
+
+                     </div>
+                     <div class="modal-footer">
+                       <button type="button" class="btn bg-gradient-primary">Save changes</button>
+                       <button type="button" class="btn btn-link  ml-auto" data-bs-dismiss="modal">Close</button>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+          </div>
+
       </section>
+
       <section class="product">
-        <h2 class="product-category">best selling</h2>
+        <h2 class="product-category">Cowpea</h2>
         <button class="pre-btn"><img src="assets/images/arrow.png" alt=""></button>
         <button class="nxt-btn"><img src="assets/images/arrow.png" alt=""></button>
         <div class="product-container">
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card1.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card2.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card3.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card4.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card5.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card6.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card7.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card8.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card9.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <span class="discount-tag">50% off</span>
+              <button class="discount-tag " data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-ellipsis-vertical"></i></button>
               <img src="assets/images/card10.jpg" class="product-thumb" alt="">
-              <button class="card-btn">add to wishlist</button>
+              <button class="card-btn">information</button>
             </div>
             <div class="product-info">
               <h2 class="product-brand">brand</h2>
-              <p class="product-short-description">a short line about the cloth..</p>
+              <p class="product-short-description">this crops is see more..</p>
               <span class="price">$20</span><span class="actual-price">$40</span>
             </div>
           </div>
         </div>
       </section>
     </section>
+
 
     <section  class="section" id="staff-section">
       <div><h1>Staff section</h1></div>
@@ -398,7 +537,7 @@
     <section  class="section" id="equipment-section">
       <div><h1>Equipment section</h1></div>
     </section>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="script/jquery/jquery.min.js"></script>
   <script src="script/mainScript.js"></script>
   <script src="script/slider.js"></script>
