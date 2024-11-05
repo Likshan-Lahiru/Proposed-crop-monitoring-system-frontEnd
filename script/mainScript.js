@@ -133,19 +133,31 @@ function myFunction() {
 // Highlight the row with a specific color
 document.querySelectorAll('.edit-row').forEach(button => {
     button.addEventListener('click', function () {
+        // Show a confirmation dialog
+        const confirmEdit = confirm("Are you sure you want to edit this information?");
+        if (!confirmEdit) return;
+
         const row = button.closest('tr');
         const updateButton = row.querySelector('.update-row');
         const editables = row.querySelectorAll('.editable');
 
         // Enable editing
-        editables.forEach(cell => cell.contentEditable = true);
+        editables.forEach(cell => {
+            if (cell.classList.contains('field-id-text')) {
+                cell.style.display = 'none'; // Hide the text
+                const dropdown = cell.nextElementSibling; // Get the dropdown
+                dropdown.style.display = 'inline-block'; // Show the dropdown
+            } else {
+                cell.contentEditable = true; // Enable editing for other cells
+            }
+        });
+
+        // Highlight the row
+        row.classList.add('highlight');
 
         // Show Update button and hide Edit button
         button.style.display = 'none';
         updateButton.style.display = 'inline-block';
-
-        // Highlight the row with a specific color
-        row.style.backgroundColor = '#a3e635'; // Set the desired background color
     });
 });
 
@@ -155,24 +167,32 @@ document.querySelectorAll('.update-row').forEach(button => {
         const editButton = row.querySelector('.edit-row');
         const editables = row.querySelectorAll('.editable');
 
-        // Disable editing and get new data
-        editables.forEach(cell => cell.contentEditable = false);
+        // Disable editing, remove highlighting, and get new data
+        editables.forEach(cell => {
+            if (cell.classList.contains('field-id-dropdown')) {
+                const dropdown = cell; // Get the dropdown
+                const selectedValue = dropdown.value; // Get selected value
+                const textCell = cell.previousElementSibling; // Get the text cell
+                textCell.innerText = selectedValue; // Update the text cell
+                dropdown.style.display = 'none'; // Hide the dropdown
+            } else {
+                cell.contentEditable = false; // Disable editing for other cells
+            }
+        });
+        row.classList.remove('highlight'); // Remove highlight
 
-        // Update row data if needed (e.g., send to server or update other fields)
         const updatedData = {
             commonName: editables[0].innerText,
             scientificName: editables[1].innerText,
             category: editables[2].innerText,
-            season: editables[3].innerText
+            season: editables[3].innerText,
+            fieldId: editables[4].previousElementSibling.innerText // Get updated FieldId
         };
         console.log('Updated Data:', updatedData);
 
         // Show Edit button and hide Update button
         button.style.display = 'none';
         editButton.style.display = 'inline-block';
-
-        // Remove highlight by resetting the background color
-        row.style.backgroundColor = ''; // Reset to default
     });
 });
 

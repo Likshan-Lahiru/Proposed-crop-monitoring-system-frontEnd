@@ -65,13 +65,38 @@ body{
 }
 
 /*---------------crop section style-------------------------*/
-
-#kt_modal_2 .modal-content {
-    background: linear-gradient(to bottom, #e0ffe0, #ffffff);
+.table {
+    background-color: transparent;
 }
 
+.table thead {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.table tbody tr {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.table th, .table td {
+    background-color: transparent;
+}
+#kt_modal_2 .modal-content {
+    background: linear-gradient(to bottom, rgba(238, 255, 0, 0.56), #ffffff), url('https://img.freepik.com/free-photo/selective-focus-shot-some-wheat-field_181624-4843.jpg?t=st=1730827719~exp=1730831319~hmac=311eab19a74777b07753f2d7632fa24c5a37e4a84254a2f403cff3a331905303&w=1800') no-repeat center center;
+    background-size: cover;
+}
 
 #kt_modal_2 .modal-header,
 #kt_modal_2 .modal-footer {
-    background-color: #e0ffe0;
+
+    background-image: url('https://img.freepik.com/free-photo/selective-focus-shot-some-wheat-field_181624-4843.jpg?t=st=1730827719~exp=1730831319~hmac=311eab19a74777b07753f2d7632fa24c5a37e4a84254a2f403cff3a331905303&w=1800');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
 }
+
+
+.modal-fullscreen {
+    max-width: 100%;
+    height: 100vh;
+}
+
