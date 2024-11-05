@@ -127,3 +127,53 @@ function myFunction() {
         btn.innerHTML = "<i class=\"fa-solid fa-play\">";
     }
 }
+
+
+/*-----------crop table script----------*/
+// Highlight the row with a specific color
+document.querySelectorAll('.edit-row').forEach(button => {
+    button.addEventListener('click', function () {
+        const row = button.closest('tr');
+        const updateButton = row.querySelector('.update-row');
+        const editables = row.querySelectorAll('.editable');
+
+        // Enable editing
+        editables.forEach(cell => cell.contentEditable = true);
+
+        // Show Update button and hide Edit button
+        button.style.display = 'none';
+        updateButton.style.display = 'inline-block';
+
+        // Highlight the row with a specific color
+        row.style.backgroundColor = '#a3e635'; // Set the desired background color
+    });
+});
+
+document.querySelectorAll('.update-row').forEach(button => {
+    button.addEventListener('click', function () {
+        const row = button.closest('tr');
+        const editButton = row.querySelector('.edit-row');
+        const editables = row.querySelectorAll('.editable');
+
+        // Disable editing and get new data
+        editables.forEach(cell => cell.contentEditable = false);
+
+        // Update row data if needed (e.g., send to server or update other fields)
+        const updatedData = {
+            commonName: editables[0].innerText,
+            scientificName: editables[1].innerText,
+            category: editables[2].innerText,
+            season: editables[3].innerText
+        };
+        console.log('Updated Data:', updatedData);
+
+        // Show Edit button and hide Update button
+        button.style.display = 'none';
+        editButton.style.display = 'inline-block';
+
+        // Remove highlight by resetting the background color
+        row.style.backgroundColor = ''; // Reset to default
+    });
+});
+
+/*--------------------------------*/

@@ -19,6 +19,11 @@
     <style>
 
     </style>
+    <style>
+      .highlight {
+        background-color: #ffff00; /* Highlight color */
+      }
+    </style>
 
   </head>
   <body>
@@ -139,7 +144,7 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_2">
                 view crop table
             </button>
-            <button><i class="fa-regular fa-square-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+            <button><i class="fa-regular fa-square-plus" data-bs-toggle="modal" data-bs-target="#exampleModal1"></i></button>
 
           </div>
         </div>
@@ -149,18 +154,10 @@
         <div class="modal-dialog modal-fullscreen">
           <div class="modal-content shadow-none">
             <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <div class="input-group rounded">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-
-                <span class="input-group-text border-0" id="search-addon">
-                   <i class="fas fa-search"></i>
-                  </span>
-
-              </div>
-              <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title">Row Details</h5>
+              <button type="button" class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
                 <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
-              </div>
+              </button>
             </div>
 
             <div class="modal-body">
@@ -168,39 +165,52 @@
                 <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col">Crop Common Name</th>
+                  <th scope="col">Scientific Name</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Season</th>
+                  <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <tr data-common-name="Wheat" data-scientific-name="Triticum" data-category="Cereal" data-season="Winter">
                   <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <td class="editable" contenteditable="false">Wheat</td>
+                  <td class="editable" contenteditable="false">Triticum</td>
+                  <td class="editable" contenteditable="false">Cereal</td>
+                  <td class="editable" contenteditable="false">Winter</td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-sm edit-row">Edit</button>
+                    <button type="button" class="btn btn-success btn-sm update-row" style="display: none;">Update</button>
+                    <button type="button" class="btn btn-danger btn-sm delete-row">Delete</button>
+                  </td>
                 </tr>
-                <tr>
+                <tr data-common-name="Rice" data-scientific-name="Oryza sativa" data-category="Grain" data-season="Summer">
                   <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
+                  <td class="editable" contenteditable="false">Rice</td>
+                  <td class="editable" contenteditable="false">Oryza sativa</td>
+                  <td class="editable" contenteditable="false">Grain</td>
+                  <td class="editable" contenteditable="false">Summer</td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-sm edit-row">Edit</button>
+                    <button type="button" class="btn btn-success btn-sm update-row" style="display: none;">Update</button>
+                    <button type="button" class="btn btn-danger btn-sm delete-row">Delete</button>
+                  </td>
                 </tr>
                 </tbody>
               </table>
             </div>
+
+
+
             <div class="modal-footer">
+
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
       </div>
+
 
       <section class="product">
         <h2 class="product-category">Rice</h2>
@@ -336,7 +346,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="exampleModalLabel">Details</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button id="close-btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form>
@@ -587,6 +597,11 @@
     </section>
 
   <!--Js Script-->
+  <script>
+
+
+
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="script/jquery/jquery.min.js"></script>
   <script src="script/mainScript.js"></script>
