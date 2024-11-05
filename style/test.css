@@ -13,3 +13,25 @@
 .table th, .table td {
     background-color: transparent;
 }
+
+#exampleModal1 .modal-content{
+    background-image: url("https://as2.ftcdn.net/v2/jpg/09/14/79/69/1000_F_914796959_FaW4tB28TGyUYwXkf144U5okOeUMvx25.jpg");
+    background-size: cover;
+    max-width: 100%;
+
+
+}
+#exampleModal .modal-content{
+    background-image: url("https://img.freepik.com/premium-photo/photo-farmers-hands-holding-grain-burlap-sack-wheat-field-harvest_763111-331185.jpg?w=1800");
+    background-size: cover;
+    max-width: 100%;
+
+}
+
+#exampleModal1  .modal-dialog .modal-content .modal-body .col-form-label{
+    color: white;
+}
+
+#exampleModalLabel{
+    color: black;
+}

@@ -135,10 +135,10 @@
 
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_2">
+            <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#kt_modal_2">
                 view crop table
             </button>
-            <button><i class="fa-regular fa-square-plus" data-bs-toggle="modal" data-bs-target="#exampleModal1"></i></button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class="fa-regular fa-square-plus" ></i>New</button>
 
           </div>
         </div>
@@ -148,7 +148,15 @@
         <div class="modal-dialog modal-fullscreen">
           <div class="modal-content shadow-none">
             <div class="modal-header">
-              <h5 class="modal-title">Row Details</h5>
+              <h5 class="modal-title" style="color: white">Crop Details</h5>
+              <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                <div class="input-group">
+                  <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                  <div class="input-group-append">
+                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
               <button type="button" class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
                 <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
               </button>
@@ -343,7 +351,7 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Details</h1>
+                  <h1 class="modal-title fs-5"  id="exampleModalLabel">update data</h1>
                   <button id="close-btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -370,18 +378,19 @@
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-success">update</button>
                   <button type="button" class="btn btn-info">Clear</button>
-                  <button type="button" class="btn btn-danger">Delete</button>
+
 
                 </div>
               </div>
             </div>
           </div>
-          <!--------------------model save ------------------------->
+
+          <!--------------------model crop save ------------------------->
           <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel1">Details</h1>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel1">New Crop</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
