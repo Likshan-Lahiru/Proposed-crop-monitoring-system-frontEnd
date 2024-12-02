@@ -80,6 +80,7 @@ body{
 .table th, .table td {
     background-color: transparent;
 }
+
 #kt_modal_2 .modal-content {
     background: linear-gradient(to bottom, rgba(238, 255, 0, 0.56), #ffffff), url('https://img.freepik.com/free-photo/selective-focus-shot-some-wheat-field_181624-4843.jpg?t=st=1730827719~exp=1730831319~hmac=311eab19a74777b07753f2d7632fa24c5a37e4a84254a2f403cff3a331905303&w=1800') no-repeat center center;
     background-size: cover;
