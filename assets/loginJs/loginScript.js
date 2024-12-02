@@ -74,7 +74,7 @@ $('#sign-up').on('click', () => {
                         showConfirmButton: false,
                         timer: 1000
                     });
-                    window.location.href = "index.html";
+                    window.location.href = "index1.html";
                 } else {
                     console.error("Token not found in response");
                 }
@@ -139,7 +139,7 @@ $('#sign-In').on('click', () => {
                     timer: 1000
                 });
 
-                window.location.href = "index.html";
+                window.location.href = "index1.html";
             } else {
                 console.error("Token not found in response");
                 Swal.fire({
