@@ -1,3 +1,4 @@
+
 export default class cropModel {
     constructor(cropCode,cropCommonName,cropScientificName,cropImage,cropSeason,cropCategory,fieldCode,logCode) {
         this.cropCode = cropCode;

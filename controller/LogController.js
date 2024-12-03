@@ -15,7 +15,7 @@ function loadLogList() {
     let logArray = [];
     let jwtToken = localStorage.getItem('jwtToken');
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/field",
+        url: "http://localhost:8080/greenShadow/api/v1/log",
         type: "GET",
         headers: {
             Authorization: `Bearer ${jwtToken}`

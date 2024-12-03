@@ -1,5 +1,7 @@
 const fieldIds = $('.field-id');
+const FieldID1 = $('#FieldID');
 const logIds = $('.log-id');
+let cropId = "";
 let next_crop_id;
 
 initialize();
@@ -12,80 +14,6 @@ function initialize() {
     }, 1000);
 }
 
-
-$("#update-crop").on('click', () => {
-    document.querySelectorAll('.update-row').forEach(button => {
-        button.addEventListener('click', function () {
-            const row = button.closest('tr');
-            const editButton = row.querySelector('.edit-row');
-            const editables = row.querySelectorAll('.editable');
-
-            // Disable editing, remove highlighting, and get new data
-            const updatedData = {};
-            editables.forEach(cell => {
-                if (cell.classList.contains('field-id-dropdown')) {
-                    const dropdown = cell; // Get the dropdown
-                    const selectedValue = dropdown.value; // Get selected value
-                    const textCell = cell.previousElementSibling; // Get the text cell
-                    textCell.innerText = selectedValue; // Update the text cell
-                    dropdown.style.display = 'none'; // Hide the dropdown
-                    updatedData.fieldId = selectedValue; // Store updated fieldId
-                } else {
-                    const key = cell.getAttribute('data-key'); // Use data-key for dynamic mapping
-                    updatedData[key] = cell.innerText.trim(); // Trim to remove excess spaces
-                    cell.contentEditable = false; // Disable editing for other cells
-                }
-            });
-
-            row.classList.remove('highlight'); // Remove highlight
-            button.style.display = 'none'; // Hide Update button
-            editButton.style.display = 'inline-block'; // Show Edit button
-
-            console.log('Sending updated data to the server:', updatedData);
-
-            // Send updated data to the server
-            let jwtToken = localStorage.getItem('jwtToken');
-            $.ajax({
-                url: `http://localhost:8080/greenShadow/api/v1/crop/${updatedData.commonName}`, // Adjust endpoint as necessary
-                type: 'PUT',
-                headers: {
-                    Authorization: `Bearer ${jwtToken}`,
-                    'Content-Type': 'application/json'
-                },
-                data: JSON.stringify(updatedData),
-                success: (res) => {
-                    Swal.fire({
-                        position: "top",
-                        icon: "success",
-                        title: "Update Successful!",
-                        text: "The crop information has been updated.",
-                        showConfirmButton: true,
-                        timer: 3000
-                    });
-                    console.log('Update success:', res);
-
-                    // Optionally reload crop data to reflect updated changes
-                    loadCrop();
-                },
-                error: (err) => {
-                    Swal.fire({
-                        position: "top",
-                        icon: "error",
-                        title: "Update Failed!",
-                        text: "Could not update crop information. Please try again later.",
-                        showConfirmButton: true,
-                        timer: 4000
-                    });
-                    console.error('Update failed:', err);
-                }
-            });
-        });
-    });
-
-
-});
-
-
 //save crop
 $("#Save-crop").on('click', () => {
 
@@ -95,14 +23,14 @@ $("#Save-crop").on('click', () => {
         const cropImage = $('#formFileMultiple')[0].files[0];
         const cropCategory = document.getElementById("crop_category");
         const crop_season = document.getElementById("crop_season");
-        const FieldID = document.getElementsByClassName("field-code");
-        const logIds = document.getElementById("logIds");
+        const FieldID = document.getElementById("FieldID");
+        const logIds2 = document.getElementById("log-id");
 
 
         const cropCategory1 = cropCategory.options[cropCategory.selectedIndex].text;
         const cropSeason1 = crop_season.options[crop_season.selectedIndex].text;
         const fieldID1 = FieldID.options[FieldID.selectedIndex].text;
-        const logIds1 = logIds.options[logIds.selectedIndex].text;
+        const logIds1 = logIds2.options[logIds2.selectedIndex].text;
 
         let jwtToken = localStorage.getItem('jwtToken');
         console.log("jwt token"+jwtToken)
@@ -129,6 +57,9 @@ $("#Save-crop").on('click', () => {
             success: (res) => {
                 clear();
                 loadNextIid();
+
+
+
                 loadCropList();
                 Swal.fire({
                     title: "Crop saved successfully!",
@@ -143,60 +74,72 @@ $("#Save-crop").on('click', () => {
         });
     });
 
-//load crop list
-function loadCropList() {
-    let cropArray = [];
+//update crop
+$("#update-crop").on('click', () => {
+   // const cropId = $('#crop_update_id').val();
+
+
+    const cropName = $('#recipient-name').val();
+
+    const cropScientificName = $('#message-text').val();
+    const cropImage = $('#formFileMultiple1')[0].files[0];
+    const cropCategory = document.getElementById("crop_update_category");
+    const crop_season = document.getElementById("crop_update_season");
+    const FieldID = document.getElementById("Field_update_ID");
+    const logIds2 = document.getElementById("log_update_id");
+
+
+    const cropCategory1 = cropCategory.options[cropCategory.selectedIndex].text;
+    const cropSeason1 = crop_season.options[crop_season.selectedIndex].text;
+    const fieldID1 = FieldID.options[FieldID.selectedIndex].text;
+    const logIds1 = logIds2.options[logIds2.selectedIndex].text;
+
     let jwtToken = localStorage.getItem('jwtToken');
+    console.log("jwt token"+jwtToken)
+
+    const formData = new FormData();
+    formData.append("cropCode", cropId);
+    formData.append("cropCommonName", cropName);
+    formData.append("cropScientificName", cropScientificName);
+    formData.append("cropImage", cropImage);
+    formData.append("cropSeason", cropSeason1);
+    formData.append("cropCategory", cropCategory1);
+    formData.append("fieldCode", fieldID1);
+    formData.append("logCode", logIds1);
+
+    console.log("From data multipart (cropCode): " + formData.get("cropCode"));
+    console.log("From data multipart (cropCommonName): " + formData.get("cropCommonName"));
+    console.log("From data multipart (cropScientificName): " + formData.get("cropScientificName"));
+
+
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/crop",
-        type: "GET",
+        url: `http://localhost:8080/greenShadow/api/v1/crop/${cropId}`,
+        type: "PUT",
+        data: formData,
+        processData: false,
+        contentType: false,
         headers: {
             Authorization: `Bearer ${jwtToken}`
         },
-        dataType: "json",
         success: (res) => {
-            cropArray = res;
-            console.log("print response:"+res)
-
-            let productContainer = document.querySelector('.product-container');
-            productContainer.innerHTML = '';
-
-            cropArray.forEach(crop => {
-                let productCard = `
-                    <div class="product-card">
-                        <div class="product-image">
-                            <button class="discount-tag" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
-                            </button>
-                            <img src="data:image/jpeg;base64,${crop.cropImage}" class="product-thumb" alt="${crop.cropCommonName}">
-                            <button type="button" class="card-btn btn-block bg-gradient-primary mb-3" data-bs-toggle="modal" data-bs-target="#modal-default">
-                                Information
-                            </button>
-                        </div>
-                        <div class="product-info">
-                            <h2 id="pB" class="product-brand">${crop.cropCommonName}</h2>
-                            <p class="product-short-description">This crop is ${crop.cropScientificName}, see more..</p>
-                         
-                        </div>
-                    </div>
-                `;
+            clear();
+            loadNextIid();
 
 
-                productContainer.innerHTML += productCard;
+
+            loadCropList();
+            Swal.fire({
+                title: "Crop saved successfully!",
+                text: "Success",
+                icon: "success"
             });
         },
-        error: (err) => {
-            Swal.fire({
-                position: "top",
-                icon: "question",
-                title: "Failed to load crops!..",
-                showConfirmButton: false,
-                timer: 3500
-            });
-            console.error("Failed to load crops:", err);
+        error: (res) => {
+            console.error(res);
+            alert("Failed to save crop data.");
         }
     });
-}
+});
 
 //calling next crop id
 function loadNextIid() {
@@ -298,6 +241,7 @@ function loadCrop() {
     fieldIds.append('<option selected>select the Field</option>');
 
     for (let i = 0; i < data.length; i++) {
+        console.log(data[i])
         fieldIds.append('<option value="' + (i + 1) + '">' + data[i].fieldCode + '</option>');
     }
 }
@@ -316,15 +260,22 @@ function setLogIds(data) {
 function  clear(){
     $('#crop_name').val('');
     $('#crop_scientific_name').val('');
+    $('#message-text').val('');
     $('#formFileMultiple').val('');
+    $('#formFileMultiple1').val('');
+    $('#recipient-name').val('');
+
 
 
     $('#crop_category').prop('selectedIndex', 0);
+    $('#crop_update_category').prop('selectedIndex', 0);
     $('#crop_season').prop('selectedIndex', 0);
+    $('#crop_update_season').prop('selectedIndex', 0);
     $('#FieldID').prop('selectedIndex', 0);
-    $('#logIds').prop('selectedIndex', 0);
+    $('#Field_update_ID').prop('selectedIndex', 0);
+    $('#log-id').prop('selectedIndex', 0);
+    $('#log_update_id').prop('selectedIndex', 0);
 }
-
 
 //search crop
 $("#search-crop").on("input", function () {
@@ -383,6 +334,134 @@ $("#search-crop").on("input", function () {
         });
     }
 });
+
+//load crop list
+function loadCropList() {
+
+        const productContainer = document.querySelector('.product-container');
+
+        const jwtToken = localStorage.getItem('jwtToken');
+
+
+        function loadCropList() {
+            $.ajax({
+                url: "http://localhost:8080/greenShadow/api/v1/crop",
+                type: "GET",
+                headers: {
+                    Authorization: `Bearer ${jwtToken}`
+                },
+                dataType: "json",
+                success: (res) => {
+                    productContainer.innerHTML = '';
+                    res.forEach(crop => {
+                        const productCard = `
+                        <div class="product-card">
+                            <div class="product-image">
+                                <button class="discount-tag open-update-modal" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#exampleModal" 
+                                        data-id="${crop.cropCode}">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                                <img src="data:image/jpeg;base64,${crop.cropImage}" 
+                                     class="product-thumb" 
+                                     alt="${crop.cropCommonName}">
+                                <button  type="button" class="card-btn btn-block bg-gradient-primary mb-3 open-update-modal" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#modal-default"
+                                        data-id="${crop.cropCode}">
+                                        
+                                        
+                                    Information
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                     <div class="col">
+                                           <h2 id="pB" class="product-brand">${crop.cropCommonName}</h2>
+                                      </div>
+                                <p class="product-short-description">Crop Scientific Name :${crop.cropScientificName}</p>
+                            </div>
+                        </div>
+                    `;
+                        productContainer.innerHTML += productCard;
+                    });
+                },
+                error: (err) => {
+                    Swal.fire({
+                        position: "top",
+                        icon: "question",
+                        title: "Failed to load crops!..",
+                        showConfirmButton: false,
+                        timer: 3500
+                    });
+                    console.error("Failed to load crops:", err);
+                }
+            });
+        }
+
+
+        function loadCropDetailsIntoModal(cropId) {
+            $.ajax({
+                url: `http://localhost:8080/greenShadow/api/v1/crop/${cropId}`,
+                type: "GET",
+                headers: {
+                    Authorization: `Bearer ${jwtToken}`
+                },
+                dataType: "json",
+                success: (crop) => {
+
+                    document.getElementById('crop_update_id').innerText = crop.cropCode;
+
+
+                    loadUpdateId(crop.cropCode);
+                    document.getElementById('crop_id').innerText = crop.cropCode;
+                    document.getElementById('recipient-name').value = crop.cropCommonName;
+                    document.getElementById('crop-name').innerText = crop.cropCommonName;
+                    document.getElementById('message-text').value = crop.cropScientificName;
+                    document.getElementById('crop-scientific-name').innerText = crop.cropScientificName;
+                    document.getElementById("old_log_id").innerText  = crop.logCode;
+                    document.getElementById('field_id').innerText = crop.fieldCode;
+                    document.getElementById('old_category').innerText = crop.cropCategory;
+                    document.getElementById('crop-category').innerText = crop.cropCategory;
+                    document.getElementById('old_season').innerText = crop.cropSeason;
+                    document.getElementById('crop-season').innerText = crop.cropSeason;
+                    document.getElementById("crop-image").src = "data:image/jpeg;base64," + crop.cropImage;
+
+
+                },
+                error: (err) => {
+                    Swal.fire({
+                        position: "top",
+                        icon: "error",
+                        title: "Failed to load crop details!..",
+                        showConfirmButton: false,
+                        timer: 3500
+                    });
+                    console.error("Failed to load crop details:", err);
+                }
+            });
+        }
+
+
+        productContainer.addEventListener('click', function (event) {
+            const updateButton = event.target.closest('.open-update-modal');
+            if (updateButton) {
+                const cropId = updateButton.getAttribute('data-id');
+                loadCropDetailsIntoModal(cropId);
+            }
+        });
+
+
+
+        loadCropList();
+
+}
+
+function loadUpdateId(id) {
+    cropId = id
+    console.log("print load update id"+cropId)
+}
+
 
 
 

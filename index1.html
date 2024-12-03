@@ -202,19 +202,18 @@
         <button class="nxt-btn"><img src="assets/images/arrow.png" alt=""></button>
         <div class="product-container">
 
-
-
-
-
           </div>
 
       </section>
+
+
+
       <!--------------------model update ------------------------->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5"  id="exampleModalLabel">update data</h1>
+              <h1 class="modal-title fs-5"  id="exampleModalLabel">update data....</h1>
               <h2 class="modal-title fs-5" id="crop_update_id"></h2>
               <button id="close-btn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -228,10 +227,16 @@
                   <label for="message-text" class="col-form-label">Crop scientific name</label>
                   <textarea class="form-control" id="message-text"></textarea>
                 </div>
+
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Crop Image</label>
+                  <input class="form-control" type="file" id="formFileMultiple1" multiple>
+                </div>
                 <div class="mb-3">
                   <div class="container">
                     <div class="row">
                       <div class="col">
+                        <h2 class="old" id="old_category">ww</h2>
                         <select class="form-select " aria-label="Default select example" id="crop_update_category">
                           <option selected>Category</option>
                           <option value="1">Cowpea</option>
@@ -243,6 +248,7 @@
 
                       </div>
                       <div class="col">
+                        <h2 class="old" id="old_season">ww</h2>
                         <select class="form-select" aria-label="Default select example" id="crop_update_season">
                           <option selected>Season</option>
                           <option value="1">spring</option>
@@ -259,16 +265,17 @@
                   <div class="container">
                     <div class="row">
                       <div class="col">
+                        <h2 class="old" id="field_id">ww</h2>
                         <select class="form-select field-id" aria-label="Default select example" id="Field_update_ID">
-                          <option selected>Select Field ID</option>
+                          <option class="default-value" selected>Select Field ID</option>
                           <option value="1">F00-001</option>
                           <option value="1">F00-002</option>
                           <option value="1">F00-003</option>
                           <option value="1">F00-004</option>
-
                         </select>
                       </div>
                       <div class="col">
+                        <h2 class="old" id="old_log_id">ww</h2>
                           <select class="form-select log-id" aria-label="Default select example" id="log_update_id">
                           <option selected>Select Log ID</option>
                           <option value="1">L00-001</option>
@@ -285,7 +292,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success">update</button>
+              <button id="update-crop" type="button" class="btn btn-success">update</button>
               <button type="button" class="btn btn-info">Clear</button>
 
 
@@ -359,7 +366,7 @@
                         </select>
                       </div>
                       <div class="col">
-                        <select class="form-select log-id" aria-label="Default select example" id="log_id">
+                        <select class="form-select log-id" aria-label="Default select example" id="log-id">
                           <option selected>Select Log ID</option>
                           <option value="1">L00-001</option>
                           <option value="1">L00-002</option>
@@ -390,19 +397,19 @@
           <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h6 class="modal-title font-weight-normal" id="modal-title-default">Type your modal title</h6>
+                <h6 class="modal-title font-weight-normal" id="modal-title-default">Crop Information</h6>
                 <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
+                  <span aria-hidden="true"></span>
                 </button>
               </div>
               <div class="modal-body">
-                <p>Far far away, behind the word mountains, <br>
-                  Far far away, behind the word mountains,
+                <img id="crop-image" width="450" height="450">
+                <p>
+                  This crop is identified by <strong><span id="crop_id"></span></strong>. It is commonly known as <strong><span id="crop-name"></span></strong>, while its scientific name is
+                  <em><span id="crop-scientific-name"></span></em>. This crop thrives during the <strong><span id="crop-season"></span></strong> season and belongs to the <strong><span id="crop-category"></span></strong> category. It is one of the most popular crops in its group, offering great agricultural value.
                 </p>
-
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn bg-gradient-primary">Save changes</button>
                 <button type="button" class="btn btn-link  ml-auto" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
@@ -410,27 +417,20 @@
         </div>
       </div>
 
-      <section class="product">
-
-
-
-        <h2 class="product-category">cropCategory</h2>
-        <button class="pre-btn"><img src="assets/images/arrow.png" alt=""></button>
-        <button class="nxt-btn"><img src="assets/images/arrow.png" alt=""></button>
-        <div class="product-container">
-
-
-
-
-
-        </div>
-      </section>
     </section>
 
   <!--Staff Section-->
-    <section  class="section" id="staff-section">
-      <div><h1>Staff section</h1></div>
-    </section>
+  <section class="section" id="staff-section">
+    <div>
+      <h1>Staff Section</h1>
+    </div>
+    <div class="container mx-auto mt-4">
+      <div class="row">
+
+      </div>
+    </div>
+  </section>
+
 
   <!--Monitoring Section-->
     <section  class="section" id="monitoring-section">
@@ -459,6 +459,7 @@
   <script src="controller/cropController.js"></script>
   <script src="controller/FieldController.js"></script>
   <script src="controller/LogController.js"></script>
+  <script src="controller/staffController.js"></script>
   <script src="script/slider.js"></script>
   <script src="script/popper.js"></script>
   <script src="script/bootstrap.min.js"></script>
