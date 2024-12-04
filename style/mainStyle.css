@@ -102,7 +102,8 @@ body{
 }
 .old{
     color: black;
-    font-weight:10
+    font-size: 1rem;
+
 }
 :root {
     --gradient: linear-gradient(to left top, #00ff48 10%, #008101 90%) !important;
@@ -137,4 +138,49 @@ body {
     border: 5px solid #fff !important;
     box-shadow: #222 1px 0 10px;
     text-decoration: underline;
+}
+
+/* Wrapper style for centering */
+.date-picker-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 250px;
+    margin: 20px auto;
+}
+
+/* Label style */
+.date-picker-wrapper label {
+    font-size: 16px;
+    color: #2e7d32; /* Green shade */
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Input style */
+.styled-date-picker {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #2e7d32; /* Green border */
+    border-radius: 8px;
+    color: #2e7d32; /* Green text */
+    background-color: #e8f5e9; /* Light green background */
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    width: 100%;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* For animation */
+}
+
+/* Focus effect */
+.styled-date-picker:focus {
+    border-color: #1b5e20; /* Darker green */
+    background-color: #a5d6a7; /* Brighter green background */
+    box-shadow: 0 0 8px #66bb6a; /* Glow effect */
+    transform: scale(1.05); /* Slight zoom */
+}
+
+/* Hover effect */
+.styled-date-picker:hover {
+    background-color: #c8e6c9; /* Soft green on hover */
+    cursor: pointer;
 }

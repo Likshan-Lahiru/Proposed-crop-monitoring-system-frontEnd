@@ -1,5 +1,4 @@
 const fieldIds = $('.field-id');
-const FieldID1 = $('#FieldID');
 const logIds = $('.log-id');
 let cropId = "";
 let next_crop_id;
@@ -11,6 +10,7 @@ function initialize() {
        loadCropList();
         loadCrop();
         loadNextIid();
+
     }, 1000);
 }
 
@@ -206,15 +206,6 @@ function loadCrop() {
                   <td class="editable field-id-text" contenteditable="false">${crop.fieldCode}</td>
                   <td class="editable log code" contenteditable="false">${crop.logCode}</td>
 
-                        <td class="edit code">
-                            <button id="update-crop"  type="button" class="btn btn-primary btn-sm edit-row">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </button>
-                            <button type="button" class="btn btn-success btn-sm update-row" style="display: none;">
-                                Update
-                            </button>
-                            <button type="button" class="btn btn-danger btn-sm delete-row">Delete</button>
-                        </td>
                 
                 `;
 
@@ -244,6 +235,7 @@ function loadCrop() {
         console.log(data[i])
         fieldIds.append('<option value="' + (i + 1) + '">' + data[i].fieldCode + '</option>');
     }
+
 }
 
 //set log code
@@ -461,6 +453,56 @@ function loadUpdateId(id) {
     cropId = id
     console.log("print load update id"+cropId)
 }
+
+//delete crop
+$("#delete-crop").on("click", function () {
+
+    console.log("Search Crop");
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            let jwtToken = localStorage.getItem('jwtToken');
+            $.ajax({
+                url: `http://localhost:8080/greenShadow/api/v1/crop/${cropId}`,
+                type: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${jwtToken}`
+                },
+                success: (res) => {
+                    console.log("Response received:", res);
+                    initialize()
+                    Swal.fire({
+                        title: "Crop Delete successfully!",
+                        text: "Success",
+                        icon: "success"
+                    });
+
+
+                },
+                error: (err) => {
+                    console.error("AJAX error:", err);
+                    Swal.fire({
+                        title: "crop Delete unsuccessfully!",
+                        text: "Error",
+                        icon: "Error"
+                    });
+                }
+            });
+        }
+    });
+
+
+
+
+});
 
 
 

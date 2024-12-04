@@ -208,7 +208,7 @@
 
 
 
-      <!--------------------model update ------------------------->
+      <!--------------------model crop update ------------------------->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -293,6 +293,7 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button id="update-crop" type="button" class="btn btn-success">update</button>
+              <button id="delete-crop" type="button" class="btn btn-warning"><i class="fa-solid fa-trash"></i>Delete</button>
               <button type="button" class="btn btn-info">Clear</button>
 
 
@@ -390,7 +391,7 @@
           </div>
         </div>
       </div>
-      <!--------------------model information ------------------------->
+      <!--------------------model crop information ------------------------->
       <div class="col-md-4">
 
         <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
@@ -421,14 +422,439 @@
 
   <!--Staff Section-->
   <section class="section" id="staff-section">
-    <div>
-      <h1>Staff Section</h1>
-    </div>
-    <div class="container mx-auto mt-4">
+    <div class="container text-center">
       <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#kt_modal_1">
+            view Staff table
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staffSaveModel"><i class="fa-regular fa-square-plus" ></i>New Staff</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="staff-section1" >
+      <div class="container mx-auto mt-4" >
+        <div  class="row">
+
+        </div>
 
       </div>
     </div>
+
+    <!--staff update model-->
+    <div class="modal fade modal-xl" id="staffUpdateModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5"  id="staff_update">Staff Update.......</h1>
+            <h2 class="modal-title fs-5" id="staff_id">S00-001</h2>
+            <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="container px-4 text-center">
+                <div class="row gx-5">
+                  <div class="col">
+                    <div class="p-3">
+                      <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">First Name</label>
+                        <input type="text" class="form-control" id="staff-first-name">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="p-3">
+                      <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Second Name</label>
+                        <textarea class="form-control" id="staff-last-name"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <h2 class="old" id="old-staff-designation">designation</h2>
+                      <select class="form-select " aria-label="Default select example" id="staff-designation">
+                        <option selected>Designation</option>
+                        <option value="1">Manager</option>
+                        <option value="2">SeniorAssistantManager</option>
+                        <option value="3">AssistantManager</option>
+                        <option value="4">AdminHR</option>
+                        <option value="5">SeniorAgronomist</option>
+                        <option value="6">Agronomist</option>
+                        <option value="7">SoilScientist</option>
+                        <option value="8">SeniorTechnician</option>
+                        <option value="9">Technician</option>
+                        <option value="10">Supervisors</option>
+                        <option value="11">Labors</option>
+                        <option value="12">SeniorAgronomist</option>
+                      </select>
+                    </div>
+
+                    <div class="col">
+                      <h2 class="old" id="old-gender">Gender</h2>
+                      <select class="form-select" aria-label="Default select example" id="staff gender">
+                        <option selected>Gender</option>
+                        <option value="1">MALE</option>
+                        <option value="2">FEMALE</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="container px-4 text-center">
+                <div class="row gx-5">
+                  <div class="col">
+                    <div class="p-3">
+                      <div class="date-picker-wrapper">
+                        <label for="birthday">Select Joining date:</label>
+                        <input type="date" id="joing-date" name="birthday" class="styled-date-picker" />
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="p-3">
+                      <div class="date-picker-wrapper">
+                        <label for="birthday">Select  birthday:</label>
+                        <input type="date" id="birthday" name="birthday" class="styled-date-picker" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container text-center">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine01</label>
+                    <input type="text" class="form-control" id="staff-AddressLine01">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine02</label>
+                    <input type="text" class="form-control" id="staff-AddressLine02">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine03</label>
+                    <input type="text" class="form-control" id="staff-AddressLine03">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine04</label>
+                    <input type="text" class="form-control" id="staff-AddressLine04">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine05</label>
+                    <input type="text" class="form-control" id="staff-AddressLine05">
+                  </div>
+                </div>
+              </div>
+
+              <div class="container text-center">
+
+                <div class="row align-items-start">
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">contact</label>
+                    <input type="text" class="form-control" id="staff-contact">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">Email</label>
+                    <input type="email" class="form-control" id="staff-email">
+                  </div>
+                  <div class="col">
+                    <div class="col">
+                      <h2 class="old" id="old-jobRole">Job Role</h2>
+                      <select class="form-select" aria-label="Default select example" id="staff-jobRole">
+                        <option selected>jobRole</option>
+                        <option value="1">ADMINISTRATOR</option>
+                        <option value="2">SCIENTIST</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container text-center">
+                <div class="row align-items-start">
+                  <div class="col">
+                    <label for="message-text" class="col-form-label">Crop Image</label>
+                    <input class="form-control" type="file" id="staff-update-image" multiple>
+                  </div>
+                  <div class="col">
+                    <h1 class="old" id="old-logCode">Log code</h1>
+                    <select class="form-select log-id" aria-label="Default select example" id="staff-update-logCode">
+                      <option selected>Log Code</option>
+                      <option value="1">L00-001</option>
+                      <option value="2">L00-002</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <h1 class="old" id="old-field-id">Field Code</h1>
+                    <select class="form-select field-id" aria-label="Default select example" id="staff-update-field-id">
+                      <option selected>Select Field ID</option>
+                      <option value="1">F00-001</option>
+                      <option value="1">F00-002</option>
+                      <option value="1">F00-003</option>
+                      <option value="1">F00-004</option>
+
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button id="update-staff" type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Update</button>
+            <button id="delete-staff" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"><i class="fa-solid fa-trash"></i>Delete</button>
+
+            <button type="button" class="btn btn-info">Clear</button>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--staff save model-->
+    <div class="modal fade modal-xl" id="staffSaveModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5"  id="staff_save">Staff Update.......</h1>
+            <h2 class="modal-title fs-5 staff_next_id" id="staff_next_id">S00-00..</h2>
+            <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="container px-4 text-center">
+                <div class="row gx-5">
+                  <div class="col">
+                    <div class="p-3">
+                      <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">First Name</label>
+                        <input type="text" class="form-control" id="staff-f-name">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="p-3">
+                      <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Second Name</label>
+                        <textarea class="form-control" id="staff-l-name"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <h2 class="old" >designation</h2>
+                      <select class="form-select " aria-label="Default select example" id="staff-designation1">
+                        <option selected>Designation</option>
+                        <option value="1">Manager</option>
+                        <option value="2">SeniorAssistantManager</option>
+                        <option value="3">AssistantManager</option>
+                        <option value="4">AdminHR</option>
+                        <option value="5">SeniorAgronomist</option>
+                        <option value="6">Agronomist</option>
+                        <option value="7">SoilScientist</option>
+                        <option value="8">SeniorTechnician</option>
+                        <option value="9">Technician</option>
+                        <option value="10">Supervisors</option>
+                        <option value="11">Labors</option>
+                        <option value="12">SeniorAgronomist</option>
+                      </select>
+                    </div>
+
+                    <div class="col">
+                      <h2 class="old" >Gender</h2>
+                      <select class="form-select" aria-label="Default select example" id="staffGender">
+                        <option selected>Gender</option>
+                        <option value="1">MALE</option>
+                        <option value="2">FEMALE</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="container px-4 text-center">
+                <div class="row gx-5">
+                  <div class="col">
+                    <div class="p-3">
+                      <div class="date-picker-wrapper">
+                        <label for="birthday">Select Joining date:</label>
+                        <input type="date" id="joing-date1" name="birthday" class="styled-date-picker" />
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="p-3">
+                      <div class="date-picker-wrapper">
+                        <label for="birthday">Select  birthday:</label>
+                        <input type="date" id="birthday1" name="birthday" class="styled-date-picker" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container text-center">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine01</label>
+                    <input type="text" class="form-control" id="s-staff-AddressLine01">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine02</label>
+                    <input type="text" class="form-control" id="s-staff-AddressLine02">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine03</label>
+                    <input type="text" class="form-control" id="s-staff-AddressLine03">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine04</label>
+                    <input type="text" class="form-control" id="s-staff-AddressLine04">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">AddressLine05</label>
+                    <input type="text" class="form-control" id="s-staff-AddressLine05">
+                  </div>
+                </div>
+              </div>
+
+              <div class="container text-center">
+
+                <div class="row align-items-start">
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">contact</label>
+                    <input type="text" class="form-control" id="s-staff-contact">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">Email</label>
+                    <input type="email" class="form-control" id="s-staff-email">
+                  </div>
+                  <div class="col">
+                    <div class="col">
+                      <h2 class="old" id="s-old-jobRole">Job Role</h2>
+                      <select class="form-select" aria-label="Default select example" id="s-staff-jobRole">
+                        <option selected>jobRole</option>
+                        <option value="1">ADMINISTRATOR</option>
+                        <option value="2">SCIENTIST</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container text-center">
+                <div class="row align-items-start">
+                  <div class="col">
+                    <label for="message-text" class="col-form-label">Crop Image</label>
+                    <input class="form-control" type="file" id="staff-save-image" multiple>
+                  </div>
+                  <div class="col">
+                    <h1 class="old" >Log code</h1>
+                    <select class="form-select log-id" aria-label="Default select example" id="staff-save-logCode">
+                      <option selected>Log Code</option>
+                      <option value="1">L00-001</option>
+                      <option value="2">L00-002</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <h1 class="old" >Field Code</h1>
+                    <select class="form-select field-id" aria-label="Default select example" id="staff-save-field-id">
+                      <option selected>Select Field ID</option>
+                      <option value="1">F00-001</option>
+                      <option value="1">F00-002</option>
+                      <option value="1">F00-003</option>
+                      <option value="1">F00-004</option>
+
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+        </form>
+          <div class="modal-footer">
+            <button id="save-staff" type="button" class="btn btn-outline-success " data-bs-dismiss="modal">Save</button>
+
+            <button id="clear-save-model" type="button" class="btn btn-info">Clear</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Staff view table-->
+    <div class="modal bg-body fade" tabindex="-1" id="kt_modal_1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content shadow-none">
+          <div class="modal-header">
+            <h5 class="modal-title" style="color: white">Staff Details</h5>
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <input id="search-staff" type="search" placeholder="WSearch Staff Id?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                <div class="input-group-append">
+                  <button id="staff-search-buuton" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+              <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+              <tr>
+                <th class="staffId" scope="col">staffId</th>
+                <th class="first-name" scope="col">first Name</th>
+                <th class="last-name" scope="col">last Name</th>
+                <th class="staff-designation" scope="col">staff Designation</th>
+                <th class="gender" scope="col">gender</th>
+                <th class="joined-Date" scope="col">joined Date</th>
+                <th class="contact" scope="col">contact</th>
+                <th class="email" scope="col">email</th>
+                <th class="jobRole" scope="col">jobRole</th>
+                <th class="logCode" scope="col">logCode</th>
+              </tr>
+              </thead>
+              <tbody id="staff-details">
+
+              </tbody>
+            </table>
+          </div>
+
+
+
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
 
