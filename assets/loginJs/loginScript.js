@@ -66,7 +66,7 @@ $('#sign-up').on('click', () => {
                 if (res.token) {
 
                     localStorage.setItem("jwtToken", res.token);
-
+                    clear()
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -165,9 +165,3 @@ $('#sign-In').on('click', () => {
 
 
 
-function clear(){
-    var role ="";
-    var email ="";
-    var password ="";
-    var re_password ="";
-}

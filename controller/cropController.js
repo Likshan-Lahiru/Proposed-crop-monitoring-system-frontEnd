@@ -272,7 +272,7 @@ function  clear(){
 //search crop
 $("#search-crop").on("input", function () {
     var typedText = $("#search-crop").val();
-    console.log("Search Crop");
+
 
     if (typedText.trim() === "") {
         loadCrop();

@@ -8,5 +8,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="gijgo" level="application" />
+    <orderEntry type="library" name="bootstrap-extended" level="application" />
+    <orderEntry type="library" name="style" level="application" />
+    <orderEntry type="library" name="colors" level="application" />
   </component>
 </module>
