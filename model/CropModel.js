@@ -9,7 +9,6 @@ export default class cropModel {
         this.cropCategory = cropCategory;
         this.fieldCode = fieldCode;
         this.logCode = logCode;
-
     }
 
 }

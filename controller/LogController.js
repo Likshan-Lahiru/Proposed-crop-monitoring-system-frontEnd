@@ -1,5 +1,5 @@
-let jwtToken = localStorage.getItem('jwtToken');
-let next_id;
+
+let next_id_log;
 
 initialize();
 
@@ -116,7 +116,7 @@ $("#log-save").on("click", function () {
         const logDetails = $("#log-details").val();
         const logDate = new Date().toISOString().split('T')[0];
         const logImage = $("#log-image")[0].files[0];
-        const logId = next_id
+        const logId = next_id_log
     console.log("new Log code"+logId)
 
 
@@ -174,7 +174,7 @@ $("#update-log .btn-primary").on("click", function () {
     const logId = $("#update-log-id").text().replace("Log ID: ", "").trim();
     const updatedDetails = $("#update-log-details").val();
     const updatedFile = $("#update-log-image")[0].files[0];
-
+    const token = localStorage.getItem("jwtToken");
 
     const currentDate = new Date().toISOString().split('T')[0];
 
@@ -188,11 +188,12 @@ $("#update-log .btn-primary").on("click", function () {
     }
 
 
+
     $.ajax({
         url: `http://localhost:8080/greenShadow/api/v1/log/${logId}`,
         type: "PUT",
         headers: {
-            Authorization: `Bearer ${jwtToken}`
+            Authorization: `Bearer ${token}`
         },
         data: formData,
         processData: false,
@@ -351,7 +352,7 @@ $("#log-search").on("input", function () {
 
 //next log id
 function loadNextILogId() {
-
+    let jwtToken = localStorage.getItem('jwtToken');
     $.ajax({
         url: "http://localhost:8080/greenShadow/api/v1/log/genLogID",
         type: "GET",
@@ -367,7 +368,7 @@ function loadNextILogId() {
 
             document.getElementById("next-log-id").innerText = "Log ID:"+res;
 
-             next_id = res;
+             next_id_log = res;
 
 
         },

@@ -1,16 +1,18 @@
 let deleteId;
+const staff_id = $('.staff-id');
 initialize();
 
 function initialize() {
     setTimeout(() => {
-    loadStaffData();
-    loadStaffTable();
+        loadStaffData();
+        loadStaffTable();
         loadNextIid();
+        loadStaffList();
 
     }, 1000);
 }
 
-function loadStaffData(){
+function loadStaffData() {
     const jwtToken = localStorage.getItem('jwtToken');
 
     function loadStaffList() {
@@ -82,7 +84,7 @@ function loadNextIid() {
 
         success: (res) => {
 
-            console.log("print response nextID:"+res)
+            console.log("print response nextID:" + res)
             next_crop_id = res
 
 
@@ -124,8 +126,8 @@ function loadStaffDetailsIntoModal(staffId) {
         },
         dataType: "json",
         success: (staff) => {
-            console.log(staff.fieldIds,"staff ids")
-            console.log(staff.jobRole,"staff job role")
+            console.log(staff.fieldIds, "staff ids")
+            console.log(staff.jobRole, "staff job role")
             document.getElementById('staff_id').innerText = staff.staffId;
             document.getElementById('staff-first-name').value = staff.firstName;
             document.getElementById('staff-last-name').value = staff.lastName;
@@ -194,7 +196,6 @@ document.getElementById('update-staff').addEventListener('click', () => {
     formData.append('fieldIds', staffUpdateFieldId1 || '');
 
 
-
     $.ajax({
         url: `http://localhost:8080/greenShadow/api/v1/staff/${staffId}`,
         type: "PUT",
@@ -226,7 +227,7 @@ document.getElementById('update-staff').addEventListener('click', () => {
 });
 
 //load staff details
-function loadStaffTable(){
+function loadStaffTable() {
     const jwtToken = localStorage.getItem('jwtToken');
 
 
@@ -269,7 +270,7 @@ function loadStaffTable(){
 }
 
 //save staff
-document.getElementById('save-staff').addEventListener('click', function() {
+document.getElementById('save-staff').addEventListener('click', function () {
 
     const jwtToken = localStorage.getItem('jwtToken');
 
@@ -341,7 +342,7 @@ document.getElementById('save-staff').addEventListener('click', function() {
 });
 
 //clear function
-function  clear(){
+function clear() {
     $('.form-control').val('');
     $('.styled-date-picker').val('');
     $('.form-select').prop('selectedIndex', 0);
@@ -397,8 +398,6 @@ $("#delete-staff").on("click", function () {
     });
 
 
-
-
 });
 
 //search staff
@@ -444,3 +443,45 @@ $("#search-staff").on("input", function () {
         });
     }
 });
+
+function setStaffIds(staffArray) {
+    staff_id.empty();
+    staff_id.append('<option selected>select the Staff</option>');
+
+    for (let i = 0; i < staffArray.length; i++) {
+        staff_id.append('<option value="' + (i + 1) + '">' + staffArray[i].staffId + '</option>');
+    }
+}
+
+function loadStaffList() {
+    let staffArray = [];
+    let jwtToken = localStorage.getItem('jwtToken');
+    $.ajax({
+        url: "http://localhost:8080/greenShadow/api/v1/staff",
+        type: "GET",
+        headers: {
+            Authorization: `Bearer ${jwtToken}`
+        },
+        dataType: "json",
+        success: (res) => {
+            staffArray = res;
+            console.log("print response:" + res)
+
+            setStaffIds(staffArray);
+
+
+        },
+        error: (err) => {
+            Swal.fire({
+                position: "top",
+                icon: "question",
+                title: "Failed to load staff!..",
+                showConfirmButton: false,
+                timer: 3500
+            });
+            console.error("Failed to load staff:", err);
+        }
+    });
+}
+
+

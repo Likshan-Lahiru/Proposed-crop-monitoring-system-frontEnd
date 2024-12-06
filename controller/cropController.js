@@ -189,7 +189,7 @@ function loadCrop() {
             console.log("Response received:", res);
 
 
-            let tableBody = document.querySelector('.modal-body table tbody');
+            let tableBody = document.getElementById("crop-table");
             tableBody.innerHTML = '';
 
             res.forEach((crop, index) => {

@@ -463,6 +463,24 @@
   <!--Field section-->
     <section  class="section" id="field-section">
       <div><h1>Field section</h1></div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+
+          </div>
+          <div class="col">
+
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#field-table">
+              view crop table
+            </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#field-save"><i class="fa-regular fa-square-plus" ></i>New</button>
+
+          </div>
+        </div>
+      </div>
+
       <div class="container px-4 text-center">
         <div class="row gx-5">
           <div class="col">
@@ -470,66 +488,7 @@
               <section class="light">
                 <div class="container py-2">
                   <div class="h1 text-center text-dark" id="pageHeaderTitle">Field List</div>
-                  <article class="postcard light blue">
-                    <a class="postcard__img_link" href="#">
-                      <img id="image1" class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
-                    </a>
-                    <div class="postcard__text t-dark">
-                      <h1 id="field-name" class="postcard__title blue"><a href="#">field Name:</a></h1>
-                      <div class="postcard__subtitle small">
-                        <time datetime="2020-05-25 12:00:00">
-                          <i class="fa-solid fa-location-dot"></i>Field location
-                        </time>
-                      </div>
-                      <div class="postcard__bar"></div>
-                      <div class="postcard__preview-txt">
-                        This field, identified by the code [fieldCode], is named [fieldName] and is located at [fieldLocation]. It spans an area of [fieldSize]
-                        and is actively monitored and managed. The operational history for this field is recorded under the log code [logCode], ensuring all activities
-                        are well-documented. Currently, this field has been assigned to [number of staff] employee(s), identified by their IDs: [staffIds], who are responsible
-                        for its maintenance and productivity.
-                      </div>
-                    </div>
-                  </article>
-                  <article class="postcard light blue">
-                    <a class="postcard__img_link" href="#">
-                      <img id="image1" class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
-                    </a>
-                    <div class="postcard__text t-dark">
-                      <h1 id="field-name" class="postcard__title blue"><a href="#">field Name:</a></h1>
-                      <div class="postcard__subtitle small">
-                        <time datetime="2020-05-25 12:00:00">
-                          <i class="fa-solid fa-location-dot"></i>Field location
-                        </time>
-                      </div>
-                      <div class="postcard__bar"></div>
-                      <div class="postcard__preview-txt">
-                        This field, identified by the code [fieldCode], is named [fieldName] and is located at [fieldLocation]. It spans an area of [fieldSize]
-                        and is actively monitored and managed. The operational history for this field is recorded under the log code [logCode], ensuring all activities
-                        are well-documented. Currently, this field has been assigned to [number of staff] employee(s), identified by their IDs: [staffIds], who are responsible
-                        for its maintenance and productivity.
-                      </div>
-                    </div>
-                  </article>
-                  <article class="postcard light blue">
-                    <a class="postcard__img_link" href="#">
-                      <img id="image1" class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
-                    </a>
-                    <div class="postcard__text t-dark">
-                      <h1 id="field-name" class="postcard__title blue"><a href="#">field Name:</a></h1>
-                      <div class="postcard__subtitle small">
-                        <time datetime="2020-05-25 12:00:00">
-                          <i class="fa-solid fa-location-dot"></i>Field location
-                        </time>
-                      </div>
-                      <div class="postcard__bar"></div>
-                      <div class="postcard__preview-txt">
-                        This field, identified by the code [fieldCode], is named [fieldName] and is located at [fieldLocation]. It spans an area of [fieldSize]
-                        and is actively monitored and managed. The operational history for this field is recorded under the log code [logCode], ensuring all activities
-                        are well-documented. Currently, this field has been assigned to [number of staff] employee(s), identified by their IDs: [staffIds], who are responsible
-                        for its maintenance and productivity.
-                      </div>
-                    </div>
-                  </article>
+
                 </div>
               </section>
 
@@ -538,6 +497,130 @@
 
         </div>
       </div>
+
+      <!--save field model-->
+      <div class="modal fade" id="field-save" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="field-save-title">save filed</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label id="field-id" for="recipient-name" class="col-form-label"></label>
+
+                </div>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">field name</label>
+                  <input  type="text" class="form-control" id="field_name">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">field Location</label>
+                  <textarea class="form-control" id="fieldLocation"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">field Size</label>
+                  <textarea class="form-control" id="fieldSize"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">field Image1</label>
+                  <input class="form-control" type="file" id="field-image1" multiple>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">field Image2</label>
+                  <input class="form-control" type="file" id="field-image2" multiple>
+                </div>
+                <div class="mb-3">
+                </div>
+                <div class="mb-3">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <select class="form-select staff-id" aria-label="Default select example" id="staff-id">
+                          <option selected>Select staff ID</option>
+                          <option value="1">S00-001</option>
+                          <option value="1">S00-002</option>
+                          <option value="1">S00-003</option>
+                          <option value="1">S00-004</option>
+
+                        </select>
+                      </div>
+                      <div class="col">
+                        <select class="form-select log-id" aria-label="Default select example" id="field-log-id">
+                          <option selected>Select Log ID</option>
+                          <option value="1">L00-001</option>
+                          <option value="1">L00-002</option>
+                          <option value="1">L00-003</option>
+                          <option value="1">L00-004</option>
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button id="save-field" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--view field model-->
+      <div class="modal bg-body fade" tabindex="-1" id="field-table">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content shadow-none">
+            <div class="modal-header">
+              <h5 class="modal-title" style="color: white">Log Details</h5>
+              <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                <div class="input-group">
+                  <input id="search-field" type="search" placeholder="search field id" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                  <div class="input-group-append">
+
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
+              </button>
+            </div>
+
+            <div>
+              <div class="modal-body">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th className="field-Code" scope="col">field-Code</th>
+                    <th className="field-Name" scope="col">fieldName</th>
+                    <th className="field-Location" scope="col">field Location</th>
+                    <th className="field-Size" scope="col">Season</th>
+                    <th className="image1" scope="col">image1</th>
+                    <th className="image2" scope="col">image2</th>
+                    <th className="logCode" scope="col">log Code</th>
+                  </tr>
+                  </thead>
+                  <tbody id="field-table-view">
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+
+
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
   <!--Crop section-->
@@ -580,7 +663,7 @@
             </div>
 
             <div class="modal-body">
-              <table class="table">
+              <table class="table" id="crop-table">
                 <thead>
                 <tr>
                   <th class="Crop-id" scope="col">cropId</th>
@@ -1396,12 +1479,403 @@
 
   <!--Vehicle Section-->
     <section  class="section" id="vehicle-section">
-      <div><h1>Vehicle section</h1></div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+
+          </div>
+          <div class="col">
+            <div class="input-group rounded">
+              <input id="vehicle-search" type="search" class="form-control rounded" placeholder="Search vehicle ID" aria-label="Search" aria-describedby="search-addon" />
+              </span>
+            </div>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-vehicle"><i class="fa-regular fa-square-plus" ></i>New</button>
+          </div>
+        </div>
+      </div>
+      <!--vehicle table-->
+      <div class="container px-4 text-center">
+        <div class="row gx-5">
+          <div class="col">
+            <div class="p-3">
+              <div class="modal-body">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th class="vehicleCode" scope="col">vehicleCode</th>
+                    <th class="plateNumber" scope="col">plateNumber</th>
+                    <th class="vehicleCategory" scope="col">vehicleCategory</th>
+                    <th class="fuelType" scope="col">fuelType</th>
+                    <th class="vehicleStatus" scope="col">vehicleStatus</th>
+                    <th class="staId" scope="col">staffId</th>
+                    <th class="remarks" scope="col">remarks</th>
+                  </tr>
+                  </thead>
+                  <tbody class="tbody" id="vehicle-table-tBody">
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!--save vehicle model-->
+      <div class="modal fade" id="new-vehicle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="new-vehicle-message">Save Vehicle</h5>
+              <h5 class="modal-title" id="new-vehicle-id">V00-001</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="vehicle-plate-number" class="col-form-label">Plate Number:</label>
+                  <input type="text" class="form-control" id="vehicle-plate-number" />
+                </div>
+                <div class="mb-3">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <label for="vehicleCategory" class="col-form-label">Vehicle Category:</label>
+                        <select class="form-select" id="vehicleCategory">
+                          <option selected>Select Category</option>
+                          <option value="1">Long Vehicle</option>
+                          <option value="2">Lorry</option>
+                          <option value="3">Transport</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="fuelType" class="col-form-label">Fuel Type:</label>
+                        <select class="form-select" id="fuelType">
+                          <option selected>Select Fuel Type</option>
+                          <option value="1">Petrol</option>
+                          <option value="2">Diesel</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <label for="vehicleStatus" class="col-form-label">Vehicle Status:</label>
+                        <select class="form-select" id="vehicleStatus">
+                          <option selected>Select Status</option>
+                          <option value="1">Good Condition</option>
+                          <option value="2">Bad Condition</option>
+                          <option value="3">Average Condition</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="staff-id-vehicle" class="col-form-label">Staff ID:</label>
+                        <select class="form-select" id="staff-id-vehicle">
+                          <option selected>Select Staff ID</option>
+                          <option value="1">S00-001</option>
+                          <option value="2">S00-002</option>
+                          <option value="3">S00-003</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="remarks" class="col-form-label">Remarks:</label>
+                  <textarea class="form-control" id="remarks"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="new-vehicle-save" type="button" class="btn btn-primary">Save Vehicle</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--update vehicle model-->
+      <div class="modal fade" id="update-vehicle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="update-vehicle-message">Save Vehicle</h5>
+              <h5 class="modal-title" id="update-vehicle-id"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="vehicle-plate-number" class="col-form-label"></label>
+                  <input type="text" class="form-control" id="update-vehicle-plate-number" />
+                </div>
+                <div class="mb-3">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <label id="old-category" for="vehicleCategory" class="col-form-label"></label>
+                        <select class="form-select" id="update-vehicleCategory">
+                          <option selected>Select Category</option>
+                          <option value="1">Long Vehicle</option>
+                          <option value="2">Lorry</option>
+                          <option value="3">Transport</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label id="old-fuel-type" for="fuelType" class="col-form-label"></label>
+                        <select class="form-select" id="update-fuelType">
+                          <option selected>Select Fuel Type</option>
+                          <option value="1">Petrol</option>
+                          <option value="2">Diesel</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <label id="old-vehicleStatus" for="vehicleStatus" class="col-form-label"></label>
+                        <select class="form-select" id="update-vehicleStatus">
+                          <option selected>Select Status</option>
+                          <option value="1">Good Condition</option>
+                          <option value="2">Bad Condition</option>
+                          <option value="3">Average Condition</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label id="old-staff-id-vehicle" for="staff-id-vehicle" class="col-form-label"></label>
+                        <select class="form-select" id="update-staff-id-vehicle">
+                          <option selected>Select Staff ID</option>
+                          <option value="1">S00-001</option>
+                          <option value="2">S00-002</option>
+                          <option value="3">S00-003</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="remarks" class="col-form-label">Remarks:</label>
+                  <textarea class="form-control" id="update-remarks"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="delete-vehicle" type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i>Delete</button>
+              <button id="update-vehicle-save" type="button" class="btn btn-primary">Update Vehicle</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
   <!--Equipment section-->
     <section  class="section" id="equipment-section">
-      <div><h1>Equipment section</h1></div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+
+          </div>
+          <div class="col">
+            <div class="input-group rounded">
+              <input id="equipment-search" type="search" class="form-control rounded" placeholder="Search Equipment ID" aria-label="Search" aria-describedby="search-addon" />
+              </span>
+            </div>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-equipment"><i class="fa-regular fa-square-plus" ></i>New</button>
+          </div>
+        </div>
+      </div>
+
+      <!--equipment table-->
+      <div class="container px-4 text-center">
+        <div class="row gx-5">
+          <div class="col">
+            <div class="p-3">
+              <div class="modal-body">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th class="Equipment-Id" scope="col">Equipment Id</th>
+                    <th class="Equipment-Name" scope="col">Equipment Name</th>
+                    <th class="Equipment-Type" scope="col">Equipment Type</th>
+                    <th class="Equipment-Status" scope="col">Equipment Status</th>
+                    <th class="staffId" scope="col">staffId</th>
+                    <th class="fieldCode" scope="col">fieldCode</th>
+
+                  </tr>
+                  </thead>
+                  <tbody class="tbody" id="equipment-table-tBody">
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!--save equipment model-->
+      <div class="modal fade" id="new-equipment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="new-equipment-message">Save Vehicle</h5>
+              <h5 class="modal-title" id="new-equipment-id">V00-001</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="vehicle-plate-number" class="col-form-label">Equipment Name:</label>
+                  <input type="text" class="form-control" id="equipmentName" />
+
+                  <div class="mb-3">
+                    <label for="vehicle-plate-number" class="col-form-label">Equipment Type:</label>
+                    <input type="text" class="form-control" id="equipmentType" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="staff-id-equipment" class="col-form-label">Status:</label>
+                    <select class="form-select" id="equipmentStatus">
+                      <option selected>Select Status</option>
+                      <option value="1">Good Condition</option>
+                      <option value="2">Bad Condition</option>
+                      <option value="3">Average Condition</option>
+                    </select>
+                  </div>
+
+                <div class="mb-3">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <label for="staff-id-equipment" class="col-form-label">Staff ID:</label>
+                        <select class="form-select staff-id" aria-label="Default select example" id="staff-id-equipment">
+                          <option selected>Select staff ID</option>
+                          <option value="1">S00-001</option>
+                          <option value="1">S00-002</option>
+                          <option value="1">S00-003</option>
+                          <option value="1">S00-004</option>
+
+                        </select>
+
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="staff-id-equipment" class="col-form-label">Field ID:</label>
+                        <select class="form-select field-id" aria-label="Default select example" id="field-id-equipment">
+                          <option class="default-value" selected>Select Field ID</option>
+                          <option value="1">F00-001</option>
+                          <option value="1">F00-002</option>
+                          <option value="1">F00-003</option>
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="new-equipment-save" type="button" class="btn btn-primary">Save Equipment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--update equipment model-->
+      <div class="modal fade" id="update-equipment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="update-equipment-message">Save Vehicle</h5>
+              <h5 class="modal-title" id="update-equipment-id">V00-001</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="vehicle-plate-number" class="col-form-label">Equipment Name:</label>
+                  <input type="text" class="form-control" id="update-equipmentName" />
+
+                  <div class="mb-3">
+                    <label for="vehicle-plate-number" class="col-form-label">Equipment Type:</label>
+                    <input type="text" class="form-control" id="update-equipmentType" />
+                  </div>
+                  <div class="mb-3">
+                    <label id="update-status" for="staff-id-equipment" class="col-form-label">Status:</label>
+                    <select class="form-select" id="update-equipmentStatus">
+                      <option selected>Select Status</option>
+                      <option value="1">Good Condition</option>
+                      <option value="2">Bad Condition</option>
+                      <option value="3">Average Condition</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col">
+                          <label id="update-staff-id" for="staff-id-equipment" class="col-form-label">Staff ID:</label>
+                          <select class="form-select staff-id" aria-label="Default select example" id="update-staff-id-equipment">
+                            <option selected>Select staff ID</option>
+                            <option value="1">S00-001</option>
+                            <option value="1">S00-002</option>
+                            <option value="1">S00-003</option>
+                            <option value="1">S00-004</option>
+
+                          </select>
+
+                          </select>
+                        </div>
+                        <div class="col">
+                          <label id="update-field-id" for="staff-id-equipment" class="col-form-label">Field ID:</label>
+                          <select class="form-select field-id" aria-label="Default select example" id="update-field-id-equipment">
+                            <option class="default-value" selected>Select Field ID</option>
+                            <option value="1">F00-001</option>
+                            <option value="1">F00-002</option>
+                            <option value="1">F00-003</option>
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="delete-equipment" type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i>Delete</button>
+              <button id="update-equipment-save" type="button" class="btn btn-primary">Update Equipment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
   <!--Js Script-->
@@ -1415,6 +1889,8 @@
   <script src="controller/FieldController.js"></script>
   <script src="controller/LogController.js"></script>
   <script src="controller/staffController.js"></script>
+  <script src="controller/vehicleController.js"></script>
+  <script src="controller/EquipmentController.js"></script>
   <script src="script/slider.js"></script>
   <script src="script/popper.js"></script>
   <script src="script/bootstrap.min.js"></script>
