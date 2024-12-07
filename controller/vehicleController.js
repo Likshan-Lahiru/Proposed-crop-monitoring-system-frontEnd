@@ -42,7 +42,6 @@ function loadTableVehicle() {
                         <td>${field.vehicleCategory || 'N/A'}</td>
                         <td>${field.fuelType || 'N/A'}</td>
                         <td>${field.vehicleStatus || 'N/A'}</td>
-                        <td>${field.staId || 'N/A'}</td>
                         <td>${field.remarks || 'N/A'}</td>
                     </tr>
                 `;
@@ -131,9 +130,9 @@ $("#new-vehicle-save").click(function () {
         },
         error: function (xhr, status, error) {
             Swal.fire({
-                title: "Error",
-                text: "Failed to save vehicle.",
-                icon: "error",
+                title: "Can't access   data !!",
+                text: "error",
+                icon: "error"
             });
             console.error(xhr, status, error);
         },
@@ -220,9 +219,9 @@ $("#update-vehicle-save").on("click", () => {
         },
         error: function (xhr, status, error) {
             Swal.fire({
-                title: "Error",
-                text: "Failed to update vehicle.",
-                icon: "error",
+                title: "Can't access   data !!",
+                text: "error",
+                icon: "error"
             });
             console.error(xhr, status, error);
         },
@@ -267,9 +266,9 @@ $("#delete-vehicle").on("click", function () {
                 error: (err) => {
                     console.error("AJAX error:", err);
                     Swal.fire({
-                        title: "vehicle Delete unsuccessfully!",
-                        text: "Error",
-                        icon: "Error"
+                        title: "Can't access   data !!",
+                        text: "error",
+                        icon: "error"
                     });
                 }
             });

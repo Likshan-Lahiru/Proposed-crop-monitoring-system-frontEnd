@@ -129,9 +129,9 @@ $("#new-equipment-save").click(function () {
         },
         error: function (xhr, status, error) {
             Swal.fire({
-                title: "Error",
-                text: "Failed to save equipment.",
-                icon: "error",
+                title: "Can't access   data !!",
+                text: "error",
+                icon: "error"
             });
             console.error("Error details:", xhr.responseText, status, error);
         },
@@ -226,7 +226,7 @@ $("#update-equipment-save").on("click", () => {
         error: function (xhr, status, error) {
             Swal.fire({
                 title: "Error",
-                text: "Failed to updated equipment.",
+                text: "Can't access  equipment data .",
                 icon: "error",
             });
             console.error("Error details:", xhr.responseText, status, error);

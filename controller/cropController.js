@@ -69,7 +69,11 @@ $("#Save-crop").on('click', () => {
             },
             error: (res) => {
                 console.error(res);
-                alert("Failed to save crop data.");
+                Swal.fire({
+                    title: "Can't access   data !!",
+                    text: "error",
+                    icon: "error"
+                });
             }
         });
     });
@@ -136,7 +140,12 @@ $("#update-crop").on('click', () => {
         },
         error: (res) => {
             console.error(res);
-            alert("Failed to save crop data.");
+            Swal.fire({
+                title: "Can't access   data !!",
+                text: "error",
+                icon: "error"
+            });
+            alert("Not access save crop data.");
         }
     });
 });
@@ -490,7 +499,7 @@ $("#delete-crop").on("click", function () {
                 error: (err) => {
                     console.error("AJAX error:", err);
                     Swal.fire({
-                        title: "crop Delete unsuccessfully!",
+                        title: "Can't access   data !",
                         text: "Error",
                         icon: "Error"
                     });

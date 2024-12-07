@@ -34,7 +34,8 @@ class UseModelSignIn {
 $('#sign-up').on('click', () => {
     console.log("click sign up button");
 
-    var role = $("#sign-up-role").val();
+
+    const role = $("#staff-role option:selected").text();
     var email = $("#sign-up-email").val();
     var password = $("#sign-up-password").val();
     var re_password = $("#sign-up-re-password").val();
@@ -49,7 +50,7 @@ $('#sign-up').on('click', () => {
         });
         return;
     }
-    role = "MANAGER";
+
 
     let user = new UseModelSignUP(email, password, role);
     let userJson = JSON.stringify(user);
@@ -66,7 +67,7 @@ $('#sign-up').on('click', () => {
                 if (res.token) {
 
                     localStorage.setItem("jwtToken", res.token);
-                    clear()
+
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -109,6 +110,17 @@ $('#sign-In').on('click', () => {
             position: "top-end",
             icon: "question",
             title: "Please fill all fields",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        return;
+    }
+
+    if (!email.checkValidity()) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Invalid email format",
             showConfirmButton: false,
             timer: 1500
         });

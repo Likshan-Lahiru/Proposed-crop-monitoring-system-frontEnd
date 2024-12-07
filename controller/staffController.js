@@ -218,8 +218,8 @@ document.getElementById('update-staff').addEventListener('click', () => {
         error: (res) => {
             console.error(res);
             Swal.fire({
-                title: "Error!",
-                text: "Failed to update staff data.",
+                title: "Can't access   data !!",
+                text: "error",
                 icon: "error"
             });
         }
@@ -333,8 +333,8 @@ document.getElementById('save-staff').addEventListener('click', function () {
         error: (res) => {
             console.error(res);
             Swal.fire({
-                title: "Error!",
-                text: "Failed to save staff data.",
+                title: "Can't access   data !!",
+                text: "error",
                 icon: "error"
             });
         }
@@ -388,9 +388,9 @@ $("#delete-staff").on("click", function () {
                 error: (err) => {
                     console.error("AJAX error:", err);
                     Swal.fire({
-                        title: "Staff Delete unsuccessfully!",
-                        text: "Error",
-                        icon: "Error"
+                        title: "Can't access   data !!",
+                        text: "error",
+                        icon: "error"
                     });
                 }
             });

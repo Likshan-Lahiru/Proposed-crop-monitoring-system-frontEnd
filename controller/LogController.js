@@ -153,7 +153,7 @@ $("#log-save").on("click", function () {
             },
             error: function (error) {
                 Swal.fire({
-                    title: "log Save unsuccessfully!",
+                    title: "Can't access   data !!",
                     text: "error",
                     icon: "error"
                 });
@@ -263,9 +263,9 @@ $("#delete-log").on("click", function () {
                 error: (err) => {
                     console.error("AJAX error:", err);
                     Swal.fire({
-                        title: "log Delete unsuccessfully!",
-                        text: "Error",
-                        icon: "Error"
+                        title: "Can't access   data !!",
+                        text: "error",
+                        icon: "error"
                     });
                 }
             });
