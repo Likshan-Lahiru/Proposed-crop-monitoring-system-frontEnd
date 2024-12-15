@@ -6,14 +6,15 @@
 }
 
 body {
-    background: url("https://img.freepik.com/free-photo/refreshment-from-as-sprinklers-arc-water-geometric-greenery-fields_91128-4673.jpg?t=st=1733936033~exp=1733939633~hmac=267687c18b57bb0fe33bad660f2a3a8a8699acc3b5c109306baa3a814dd9d55b&w=1800");
+    background: url("https://img.freepik.com/free-photo/view-woman-working-agricultural-sector-celebrate-labour-day-women_23-2151252092.jpg?t=st=1734280213~exp=1734283813~hmac=f43e3c0b0a3e63a2e7395c7e968dbaf10c3ffbd8f6994497195b637fa4a36189&w=1480") no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
-    margin: -20px 0 50px;
+    margin: 0;
 }
 
 h1 {
