@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url("https://img.freepik.com/free-photo/male-farmer-with-beard-check-tea-farm_1150-14747.jpg?t=st=1732958953~exp=1732962553~hmac=4aedef8ee4718d8d71e25aab9ceb5793e2739813ecd019acc02354521053feec&w=1800");
+    background: url("https://img.freepik.com/free-photo/refreshment-from-as-sprinklers-arc-water-geometric-greenery-fields_91128-4673.jpg?t=st=1733936033~exp=1733939633~hmac=267687c18b57bb0fe33bad660f2a3a8a8699acc3b5c109306baa3a814dd9d55b&w=1800");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,4 +249,27 @@ footer i {
 footer a {
     color: #3c97bf;
     text-decoration: none;
+}
+/* Styling the select dropdown */
+#staff-role {
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333; /* Dark text color */
+    font-size: 16px; /* Adjust font size */
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Add some padding */
+    appearance: none; /* Remove default dropdown arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23007bff" d="M2 0L0 2h4z"/></svg>'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    cursor: pointer;
+}
+
+/* Styling the options */
+#staff-role option {
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    font-size: 14px; /* Adjust font size */
+    padding: 5px; /* Add padding */
 }
